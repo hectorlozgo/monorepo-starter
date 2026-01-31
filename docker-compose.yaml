@@ -1,0 +1,15 @@
+services:
+  app:
+    container_name: boilerplate
+    build:
+      context: .
+      target: development
+    ports:
+      - '3000:3000'
+    env_file:
+      - .env
+    volumes:
+      - ./:/usr/src/app
+      - /usr/src/app/node_modules
+    command: pnpm dev
+    restart: unless-stopped

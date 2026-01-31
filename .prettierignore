@@ -1,0 +1,16 @@
+# Ignore artifacts:
+build
+dist
+coverage
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+
+# Formatos que no son código o son autogenerados
+*.min.js
+*.map
+*.proto
+
+# Archivos de base de datos o logs
+*.log
+.pnpm-store
