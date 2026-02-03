@@ -1,6 +1,6 @@
 services:
-  app:
-    container_name: boilerplate
+  server:
+    container_name: server-boilerplate
     build:
       context: .
       target: development
