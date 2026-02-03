@@ -1,26 +1,23 @@
 FROM node:24-bookworm-slim as development
 RUN apt-get update && apt-get install -y --no-install-recommends ca-certificates && rm -rf /var/lib/apt/lists/*
 
-RUN corepack enable && corepack prepare pnpm@latest --activate
 WORKDIR /usr/server/src/app
-COPY package.json pnpm-lock.yaml* ./
-
-RUN pnpm install --frozen-lockfile
-COPY . .
+COPY package.json npm-lock.yaml* tsconfig.base.json ./
+COPY server/package.json server/
+COPY server ./server
+RUN npm install
 
 FROM development AS builder
-RUN pnpm build
+WORKDIR /app/server
+RUN npm build
 
 FROM node:24-bookworm-slim as runner
-RUN apt-get update && apt-get install -y --no-install-recommends ca-certificates && rm -rf /var/lib/apt/lists/*
-RUN corepack enable && corepack prepare pnpm@latest --activate
-
-WORKDIR /usr/server/src/app
+WORKDIR /app/server
 ENV NODE_ENV=production
 
-COPY package.json pnpm-lock.yaml* ./ tsconfig.json ./
-RUN pnpm install --prod --frozen-lockfile --ignore-scripts && pnpm add tsx
-COPY --from=builder /usr/server/src/app/dist ./dist
+COPY package.json pnpm-lock.yaml* ./
+COPY --from=builder /app/server/dist ./dist
+RUN npm install --prod --frozen-lockfile
 
 EXPOSE 3000
-CMD ["node", "--import", "tsx", "dist/index.js"]
+CMD ["node", "dist/index.js"]

@@ -1,15 +1,43 @@
 services:
   server:
-    container_name: server-boilerplate
+    container_name: backend
     build:
       context: .
+      dockerfile: ./server/Dockerfile
       target: development
     ports:
       - '3000:3000'
-    env_file:
-      - .env
     volumes:
-      - ./:/usr/src/app
-      - /usr/src/app/node_modules
-    command: pnpm dev
+      - ./server/src:/app/server/src
+    environment:
+      - NODE_ENV=development
+    command: npm --workspace server run dev
     restart: unless-stopped
+
+  client:
+    container_name: frontend
+    build:
+      context: .
+      dockerfile: ./client/Dockerfile
+      target: development
+    ports:
+      - '4000:4000'
+    volumes:
+      - ./client:/app/client
+      - /app/client/node_modules
+    environment:
+      - VITE_NODE_ENV=development
+    command: npm --workspace client run dev --port 4000
+    restart: unless-stopped
+
+  client-prod:
+    container_name: production
+    build:
+      context: .
+      dockerfile: ./client/Dockerfile
+      target: runner
+    ports:
+      - '80:80'
+    environment:
+      - VITE_NODE_ENV=production
+    restart: always

@@ -11,6 +11,7 @@
     "prettier": "prettier . --write",
     "format": "prettier . --write && eslint . --fix",
     "preview": "vite preview --port 4000",
+    "clean": "rimraf dist",
     "test": ""
   },
   "dependencies": {
