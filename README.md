@@ -1,4 +1,4 @@
-# Backend Boilerplate
+# Monorepo Full Stack Starter
 
 Un boilerplate inicial para construir **APIs RESTful** con **Node.js**, **Express** y **TypeScript**, listo para desarrollo, pruebas, linting y despliegue en producción.
 

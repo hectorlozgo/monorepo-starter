@@ -1,0 +1,26 @@
+{
+  "name": "client",
+  "private": true,
+  "version": "0.1.0",
+  "description": "frontend initial project",
+  "type": "module",
+  "scripts": {
+    "build": "tsc -b && vite build",
+    "dev": "vite dev --port 4000",
+    "lint": "eslint . --fix",
+    "prettier": "prettier . --write",
+    "format": "prettier . --write && eslint . --fix",
+    "preview": "vite preview --port 4000"
+  },
+  "dependencies": {
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "react-router-dom": "7.13.0"
+  },
+  "devDependencies": {
+    "@types/react": "19.2.10",
+    "@types/react-dom": "19.2.3",
+    "@vitejs/plugin-react-swc": "4.2.3",
+    "vite": "7.3.1"
+  }
+}

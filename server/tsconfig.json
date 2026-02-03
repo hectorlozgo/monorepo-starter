@@ -1,26 +1,16 @@
 {
   // Visit https://aka.ms/tsconfig to read more about this file
+  "extends": "../tsconfig.base.json",
   "compilerOptions": {
-    "rootDir": "./",
+    "rootDir": "../",
     "outDir": "./dist",
 
-    // Environment Settings
-    // See also https://aka.ms/tsconfig/module
-
-    "target": "esnext",
     "module": "esnext",
-    "moduleResolution": "bundler",
 
-    "resolveJsonModule": true,
     "allowImportingTsExtensions": false,
     "allowSyntheticDefaultImports": true,
-    "isolatedModules": true,
     "types": ["node", "jest"],
 
-    "strict": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
     "allowJs": true,
     "declaration": false,
     "sourceMap": true,
@@ -30,6 +20,6 @@
       "@/*": ["src/*"]
     }
   },
-  "include": ["src/**/*", "jest.config.ts", "eslint.config.ts"],
+  "include": ["src/**/*", "jest.config.ts", "../eslint.config.ts"],
   "exclude": ["node_modules", "dist"]
 }

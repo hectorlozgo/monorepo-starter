@@ -1,26 +1,29 @@
 {
-  "name": "fullstack-boilerplate",
+  "name": "monorepo-fullstack-starter",
   "version": "1.0.0",
-  "description": "monorepo boilerplate for fullstack applications",
+  "description": "monorepo starter for fullstack applications",
   "main": "index.js",
   "private": true,
+  "engines": {
+    "node": ">=22.14.0 <=24.13.0"
+  },
   "scripts": {
-    "build": "npm run build --workspace server",
-    "start": "npm run start --workspace server",
-    "dev": "npm run dev --workspace server",
-    "lint": "npm run lint --workspace server",
-    "prettier": "npm run prettier --workspace server",
-    "format": "npm run format --workspace server",
-    "test": "npm run test --workspace server",
-    "coverage": "npm run coverage --workspace server",
-    "clean": "npm run clean --workspace server",
-    "clean:logs": "npm run clean:logs --workspace server",
+    "build": "npm --workspace server run build && npm --workspace client run build",
+    "start": "concurrently --names \"server,client\" --prefix name --prefix-colors green,blue \"npm --workspace server run start\" \"npm --workspace client run start\"",
+    "dev": "concurrently --names \"server,client\" --prefix name --prefix-colors green,blue \"npm --workspace server run dev\" \"npm --workspace client run dev\"",
+    "lint": "npm --workspace server run lint && npm --workspace client run lint",
+    "prettier": "npm --workspace server run prettier && npm --workspace client run prettier",
+    "format": "npm --workspace server run format && npm --workspace client run format",
+    "test": "npm --workspace server run test && npm --workspace client run test",
+    "coverage": "npm --workspace server run coverage && npm --workspace client run coverage",
+    "clean": "npm --workspace server run clean && npm --workspace client run clean",
+    "clean:logs": "npm --workspace server run clean:logs && npm --workspace client run clean:logs",
     "prepare": "husky"
   },
   "workspaces": [
-    "server"
+    "server",
+    "client"
   ],
-  "packageManager": "pnpm@10.28.1+sha512.7d7dbbca9e99447b7c3bf7a73286afaaf6be99251eb9498baefa7d406892f67b879adb3a1d7e687fc4ccc1a388c7175fbaae567a26ab44d1067b54fcb0d6a316",
   "keywords": [
     "boilerplate",
     "fullstack",
@@ -35,13 +38,26 @@
   "author": "Hector Lozano",
   "license": "ISC",
   "type": "module",
-  "dependencies": {},
+  "dependencies": {
+    "dayjs": "1.11.19",
+    "dotenv": "17.2.3",
+    "zod": "4.3.6"
+  },
   "devDependencies": {
     "@commitlint/cli": "20.3.1",
     "@commitlint/config-conventional": "20.3.1",
     "@commitlint/types": "20.3.1",
+    "@eslint/js": "9.39.2",
+    "@types/node": "25.0.10",
+    "concurrently": "9.2.1",
+    "eslint": "9.39.2",
+    "eslint-plugin-react-hooks": "7.0.1",
+    "eslint-plugin-react-refresh": "0.4.24",
+    "globals": "16.5.0",
     "husky": "9.1.7",
+    "prettier": "3.8.1",
     "tsx": "4.21.0",
-    "typescript": "5.9.3"
+    "typescript": "5.9.3",
+    "typescript-eslint": "8.53.1"
   }
 }
