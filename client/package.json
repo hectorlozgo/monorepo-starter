@@ -10,7 +10,8 @@
     "lint": "eslint . --fix",
     "prettier": "prettier . --write",
     "format": "prettier . --write && eslint . --fix",
-    "preview": "vite preview --port 4000"
+    "preview": "vite preview --port 4000",
+    "test": ""
   },
   "dependencies": {
     "react": "19.2.4",
