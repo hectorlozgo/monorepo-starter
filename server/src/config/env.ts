@@ -5,7 +5,8 @@ import { ValidationError } from '@/validators/validationError'
 
 const envSchema = z.object({
   NODE_ENV: z.enum(['development', 'production', 'test']).default('production'),
-  PORT: z.coerce.number().default(3000)
+  PORT: z.coerce.number().default(3000),
+  LOGS_DAYS: z.coerce.number().default(7)
 })
 
 const result = envSchema.safeParse(process.env)

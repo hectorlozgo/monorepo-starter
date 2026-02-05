@@ -1,6 +1,6 @@
 {
   "server/**/*.{js,jsx,ts,tsx}": [
-    "eslint --fix --config server/eslint.config.ts",
+    "eslint --fix --config eslint.config.ts",
     "prettier --write",
     "jest --bail --findRelatedTests --config server/jest.config.ts"
   ],
