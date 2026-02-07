@@ -1,6 +1,6 @@
 # Monorepo Full Stack Starter
 
-Un boilerplate inicial para construir **APIs RESTful** con **Node.js**, **Express** y **TypeScript**, listo para desarrollo, pruebas, linting y despliegue en producción.
+Starter para construir aplicaciones monolíticas completas desde el Backend con **APIs RESTful** con **Node.js**, **Express** y **TypeScript**, hasta el Frontend con **React**. Listo para desarrollo, pruebas, linting y despliegue en producción.
 
 ---
 
@@ -50,7 +50,35 @@ En caso contrario si quieres usar PNPM solo ejecuta pnpm install.
 pnpm install
 ```
 
-### Variables de entorno
+### _¡IMPORTARTE!_
+
+La instalación desde root ejecutará las dependencias de ambos workspace **client** y **server**.
+
+Es importante aclarar que las dependencias están debidamente seccionadas por workspace de la siguiente manera:
+
+> En client se encuentran todas las dependencias que solo deben estar en client, lo mismo para server.
+
+- En root se encuentran las dependencias que tienen en común los packages (también conocido como **shared**).
+
+> Para instalar nuevas dependencias **_compartidas_**:
+
+- ```bash
+  npm i <package>
+  ```
+
+> Instalar dependencias en **_workspace específico_**:
+
+- ```bash
+   npm i <package> --workpace <nombre del workspace>
+  ```
+
+- ```bash
+  npm i <package> -w <nombre del workspace>
+  ```
+
+---
+
+## Variables de entorno
 
 Renombrar fichero .env.example a .env y usar configurar las variables de entorno.
 
