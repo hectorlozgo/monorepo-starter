@@ -5,8 +5,8 @@ export class ValidationError extends Error {
   public readonly status: number = 400
   public readonly errors: ApiValidationError[]
 
-  constructor(zodError: z.ZodError, location: string = 'body') {
-    super('Validation failed')
+  constructor(zodError: z.ZodError, location: string = 'body', message: string = 'Validation failed') {
+    super(message)
     Object.setPrototypeOf(this, ValidationError.prototype)
 
     this.errors = zodError.issues.map((issue) => ({

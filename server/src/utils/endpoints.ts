@@ -1,14 +1,16 @@
-const BASE = `/api`
-const path = (...params: string[]) => params.join('/')
+const API_BASE = '/api'
+const path = (base: string) => (path: string) => `${base}/${path}`
 
-const AUTH = path(BASE, 'auth')
+export const auth = path(`${API_BASE}/auth`)
+
+export const authEndpoints = {
+  login: auth('login'),
+  logout: auth('logout'),
+  signup: auth('signup'),
+  refresh: auth('refresh-token'),
+  me: auth('me')
+}
 
 export const ENDPOINTS = {
-  AUTH: {
-    login: path(AUTH, 'login'),
-    logout: path(AUTH, 'logout'),
-    signup: path(AUTH, 'signup'),
-    refresh: path(AUTH, 'refresh-token'),
-    me: path(AUTH, 'me')
-  }
-}
+  AUTH: authEndpoints
+} as const
