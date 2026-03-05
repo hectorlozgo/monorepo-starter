@@ -1,4 +1,3 @@
-import path from 'node:path'
 import js from '@eslint/js'
 import globals from 'globals'
 import reactHooks from 'eslint-plugin-react-hooks'
@@ -16,8 +15,8 @@ export default defineConfig([
       parser: tseslint.parser,
       parserOptions: {
         sourceType: 'module',
-        tsconfigRootDir: path.join(import.meta.dirname, 'client'),
-        projectService: true
+        tsconfigRootDir: import.meta.dirname,
+        project: ['./client/tsconfig.json']
       },
       globals: {
         ...globals.node,
@@ -44,8 +43,8 @@ export default defineConfig([
       parser: tseslint.parser,
       parserOptions: {
         sourceType: 'module',
-        tsconfigRootDir: path.join(import.meta.dirname, 'server'),
-        projectService: true
+        tsconfigRootDir: import.meta.dirname,
+        project: ['./server/tsconfig.json']
       },
       globals: {
         ...globals.node

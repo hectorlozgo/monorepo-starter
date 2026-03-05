@@ -17,9 +17,9 @@
 
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["./src/*"]
     }
   },
-  "include": ["src/**/*", "jest.config.ts", "../eslint.config.ts"],
+  "include": ["**/*.ts", "jest.config.ts", "../eslint.config.ts"],
   "exclude": ["node_modules", "dist"]
 }
