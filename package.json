@@ -5,7 +5,7 @@
   "main": "index.js",
   "private": true,
   "engines": {
-    "node": ">=22.14.0 <=24.13.0"
+    "node": ">=24.13.0"
   },
   "scripts": {
     "build": "npm --workspace server run build && npm --workspace client run build",
@@ -39,26 +39,27 @@
   "license": "ISC",
   "type": "module",
   "dependencies": {
-    "axios": "1.13.5",
-    "dayjs": "1.11.19",
-    "dotenv": "17.2.3",
-    "zod": "4.3.6"
+    "axios": "1.19.0",
+    "dayjs": "1.11.23",
+    "dotenv": "17.4.2",
+    "zod": "4.4.3"
   },
   "devDependencies": {
-    "@commitlint/cli": "20.3.1",
-    "@commitlint/config-conventional": "20.3.1",
-    "@commitlint/types": "20.3.1",
-    "@eslint/js": "9.39.2",
-    "@types/node": "25.0.10",
-    "concurrently": "9.2.1",
-    "eslint": "9.39.2",
-    "eslint-plugin-react-hooks": "7.0.1",
+    "@commitlint/cli": "21.2.2",
+    "@commitlint/config-conventional": "21.2.2",
+    "@commitlint/types": "21.2.0",
+    "@eslint/js": "10.0.1",
+    "@types/node": "26.2.0",
+    "@typescript/native": "npm:typescript@7.0.2",
+    "concurrently": "10.0.5",
+    "eslint": "10.9.0",
+    "eslint-plugin-react-hooks": "7.1.1",
     "eslint-plugin-react-refresh": "0.4.24",
-    "globals": "16.5.0",
+    "globals": "17.11.0",
     "husky": "9.1.7",
-    "prettier": "3.8.1",
-    "tsx": "4.21.0",
-    "typescript": "5.9.3",
-    "typescript-eslint": "8.53.1"
+    "prettier": "3.9.6",
+    "tsx": "4.23.12",
+    "typescript": "npm:@typescript/typescript6@6.0.2",
+    "typescript-eslint": "8.67.0"
   }
 }

@@ -14,12 +14,10 @@
     "allowJs": true,
     "declaration": false,
     "sourceMap": true,
-
-    "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["./src/*"]
     }
   },
-  "include": ["src/**/*", "jest.config.ts", "../eslint.config.ts"],
+  "include": ["src/**/*", "../eslint.config.ts"],
   "exclude": ["node_modules", "dist"]
 }

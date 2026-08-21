@@ -8,7 +8,7 @@ import { defineConfig } from 'eslint/config'
 
 export default defineConfig([
   {
-    ignores: ['node_modules', 'dist', '**.config.ts']
+    ignores: ['node_modules', 'dist', '**/*.config.ts']
   },
   {
     files: ['client/**/*.ts', 'client/**/*.tsx'],
@@ -48,7 +48,8 @@ export default defineConfig([
         projectService: true
       },
       globals: {
-        ...globals.node
+        ...globals.node,
+        ...globals.jest
       }
     },
     extends: [js.configs.recommended, tseslint.configs.recommended],
